@@ -2,10 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-#define row 2
-#define column 50
-
-double matrix[row][column] = {{0}};
+#define open_account 1
+#define close_account 0
+double matrix[2][50] = {{0}};
 int size = 0;
 void open()
 {
@@ -14,7 +13,7 @@ void open()
     scanf("%le", &sum);
     if (size < 50)
     {
-        for (int columns = 0; columns <column ; columns++)
+        for (int columns = 0; columns < 50; columns++)
         {
             if (matrix[1][columns] == close_account)
             {
@@ -110,13 +109,13 @@ void close(int num_account)
     return;
 }
 
-void interest()
+void interest(double prime)
 {
-    for (int columns = 0; columns < column; columns++)
+    for (int columns = 0; columns < 50; columns++)
     {
         if (matrix[1][columns] == open_account)
         {
-            matrix[0][columns] *= 1.05;
+            matrix[0][columns] *= (1+prime/100);
         }
     }
     printf("the interest has been added to all open accounts\n");
@@ -130,7 +129,7 @@ void print_all_open_acuont()
         printf("there is no open accounts\n");
     }
 
-    for (int columns = 0; columns < column; columns++)
+    for (int columns = 0; columns < 50; columns++)
     {
         if (matrix[1][columns] == open_account)
             printf("the number account is: %d, and the balance is: %0.2f\n", (columns + 901), matrix[0][columns]);
@@ -140,7 +139,7 @@ void print_all_open_acuont()
 
 void close_all_counts()
 {
-    for (int columns = 0; columns < column; columns++)
+    for (int columns = 0; columns < 50; columns++)
     {
         matrix[1][columns] = 0;
     }

@@ -6,8 +6,9 @@ int main()
     printf("*******WELCOME TO OUR BANK!*******\n");
     do
     {
-        int account = 0, count = 0;
+        int account = 0;
         double amount = 0;
+        double prime = 0;
         printf("*******************************************\n");
         printf("O:- to open a new account and save the Initial deposit amount\n");
         printf("B:- to Balance inquiry\n");
@@ -18,12 +19,7 @@ int main()
         printf("P:- to Print all open accounts and balance\n");
         printf("E:- to Close all accounts and exit the program\n");
         printf("please enter a letter: \n");
-        if (scanf(" %c", &choice) != 1)
-        {
-            printf("invalid input");
-            break;
-        }
-
+        scanf(" %c", &choice);
         switch (choice)
         {
         case 'O':
@@ -32,59 +28,37 @@ int main()
         case 'B':
             account = 0;
             printf("Please enter your number account: \n");
-            if (scanf("%d", &account))!=1)
-                {
-                    printf("invalid input");
-                    break;
-                }
+            scanf("%d", &account);
             balance(account);
             break;
         case 'D':
             account = 0;
             amount = 0;
             printf("Please enter your number account: \n");
-            if (scanf("%d", &account) != 1)
-            {
-                printf("invalid input");
-                break;
-            }
+            scanf("%d", &account);
             printf("Please enter amount to deposit: \n");
-            if (scanf("%lf", &amount) != 1)
-            {
-                printf("invalid input");
-                break;
-            }
+            scanf("%lf", &amount);
             deposit_account(account, amount);
             break;
         case 'W':
             account = 0;
             amount = 0;
             printf("Please enter your number account: \n");
-            if (scanf("%d", &account) != 1)
-            {
-                printf("invalid input");
-                break;
-            }
+            scanf("%d", &account);
             printf("Please enter amount to attract: \n");
-            if (scanf("%lf", &amount) != 1)
-            {
-                printf("invalid input");
-                break;
-            }
+            scanf("%lf", &amount);
             attratction(account, amount);
             break;
         case 'C':
             account = 0;
             printf("Please enter your number account: \n");
-            if (scanf("%d", &account) != 1)
-            {
-                printf("invalid input");
-                break;
-            }
+            scanf("%d", &account);
             close(account);
             break;
         case 'I':
-            interest();
+            printf("Please enter interest: \n");
+            scanf("%lf", &prime);
+            interest(prime);
             break;
         case 'P':
             print_all_open_acuont();
@@ -97,10 +71,8 @@ int main()
             printf("ERR choice, please enter legal letter:\n");
             break;
         }
-    }
-}
-while (choice != 'E')
-    ;
 
-return 0;
+    } while (choice != 'E');
+
+    return 0;
 }
