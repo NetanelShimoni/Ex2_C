@@ -19,7 +19,8 @@ int main()
         printf("P:- to Print all open accounts and balance\n");
         printf("E:- to Close all accounts and exit the program\n");
         printf("please enter a letter: \n");
-        scanf(" %c", &choice);
+       if(scanf(" %c", &choice)==1)
+       { 
         switch (choice)
         {
         case 'O':
@@ -28,38 +29,80 @@ int main()
         case 'B':
             account = 0;
             printf("Please enter your number account: \n");
-            scanf("%d", &account);
+            if(scanf("%d", &account)==1)
+            {
             balance(account);
-            break;
+            break;}
+            else
+            {
+             printf("illegal number");   
+            }
+            
         case 'D':
             account = 0;
             amount = 0;
             printf("Please enter your number account: \n");
-            scanf("%d", &account);
+            if(scanf("%d", &account)==1)
+            {
             printf("Please enter amount to deposit: \n");
-            scanf("%lf", &amount);
+            }
+            else
+            {
+                printf("illegal account");
+            }
+            if(scanf("%lf",&amount)==1)
+            {
             deposit_account(account, amount);
-            break;
+            break;}
+           else
+           {
+               printf("illegal amounmt");
+           }
+           
+            
         case 'W':
             account = 0;
             amount = 0;
             printf("Please enter your number account: \n");
-            scanf("%d", &account);
-            printf("Please enter amount to attract: \n");
-            scanf("%lf", &amount);
+            if(scanf("%d", &account)==1)
+            {
+            printf("Please enter amount to attract: \n");}
+            else
+            {
+                printf("illegal account");
+            }
+            if(scanf("%lf", &amount)==1)
+            {
             attratction(account, amount);
-            break;
+            break;}
+            else
+            {
+                printf("illegal amount");
+            }
+            
         case 'C':
             account = 0;
             printf("Please enter your number account: \n");
-            scanf("%d", &account);
+            if(scanf("%d", &account)==1)
+            {
             close(account);
-            break;
+            break;}
+            else
+            {
+                printf("illegal acoount");
+            }
+            
         case 'I':
             printf("Please enter interest: \n");
-            scanf("%lf", &prime);
+            if(scanf("%lf", &prime)==1)
+            {
             interest(prime);
-            break;
+            break;}
+            else
+            {
+                printf("illegal number");
+            }
+            
         case 'P':
             print_all_open_acuont();
             break;
@@ -71,7 +114,7 @@ int main()
             printf("ERR choice, please enter legal letter:\n");
             break;
         }
-
+       }
     } while (choice != 'E');
 
     return 0;

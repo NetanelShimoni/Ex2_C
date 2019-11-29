@@ -4,13 +4,20 @@
 #include <ctype.h>
 #define open_account 1
 #define close_account 0
+
 double matrix[2][50] = {{0}};
 int size = 0;
 void open()
 {
     double sum = 0;
     printf("How much money you want to deposit\n");
-    scanf("%le", &sum);
+    if(scanf("%lf", &sum)==1){
+    if (sum<0)
+    {
+        printf("You cannot enter a negative amount\n");
+        return;
+    }
+    
     if (size < 50)
     {
         for (int columns = 0; columns < 50; columns++)
@@ -29,6 +36,12 @@ void open()
     {
         printf("the bank full\n");
     }
+ }
+ else
+ {
+     printf("The amount illegal\n");
+ }
+ 
 
     return;
 }
