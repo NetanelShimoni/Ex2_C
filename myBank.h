@@ -1,3 +1,4 @@
+extern double matrix[2][50];
 void open();
 void print_arr ();
 void balance(int num_account);

@@ -9,7 +9,7 @@ int main()
         int account = 0;
         double amount = 0;
         double prime = 0;
-        printf("*******************************************\n");
+        printf("********************************************\n");
         printf("O:- to open a new account and save the Initial deposit amount\n");
         printf("B:- to Balance inquiry\n");
         printf("D:- to deposit to your account\n");
@@ -52,13 +52,20 @@ int main()
             }
             if(scanf("%lf",&amount)==1)
             {
+                if (amount<=0)
+                {
+                    printf("illegal operartion\n");
+                    break;
+                }
+                
             deposit_account(account, amount);
-            break;}
+            break;
+            }
            else
            {
                printf("illegal amounmt");
            }
-           
+           break;
             
         case 'W':
             account = 0;

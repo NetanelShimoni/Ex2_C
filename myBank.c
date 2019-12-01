@@ -4,7 +4,6 @@
 #include <ctype.h>
 #define open_account 1
 #define close_account 0
-
 double matrix[2][50] = {{0}};
 int size = 0;
 void open()
@@ -64,6 +63,12 @@ void balance(int num_account)
 }
 void deposit_account(int num_account, double amount)
 {
+   if (amount<=0)
+   {
+       printf("amount cant be negative\n");
+       return;
+   }
+   
     if (num_account < 901 || num_account > 950)
     {
         printf("**illegal account**\n");
